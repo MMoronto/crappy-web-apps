@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+<script src='https://azlejs.com/v2/azle.min.js'></script>
+</head>
+    
+<body>
+</body>
+</html>
+    
+<script> 
+ 
+create_azle(function() {
+
+// YOUR AZLE FUNCTIONS HERE
+az.load_font("Ubuntu")
+    
+    az.style_body({
+      "background": "whitesmoke",
+      "font-family": "Ubuntu"
+    })
+  
+    az.add_sections({
+      "this_class": "my_sections",
+      "sections": 1
+    })
+  
+    az.add_layout('my_sections', 1, {
+      "this_class": "my_layout",
+    "cell_class": "my_layout_cells",
+      "row_class": "my_layout_rows",
+      "number_of_rows": 1,
+      "number_of_columns": 2
+    })
+
+    z.add_d3_visual('my_layout_cells', 2, {
+        "this_class": "my_d3",
+        "html_path": "visuals/barchart.html",
+        "wrapper_arguments": barchart_wrapper_args,
+        "extra_functions": barchart_extras
+    })
+
+    barchart_wrapper_args = {
+        "data_path": "../data/bar_data.tsv",
+        "y_title": "AVG RETURN",
+        "top_choice": 30,
+        "right_choice": 30,
+        "bottom_choice": 30,
+        "left_choice": 60,
+        "bar_color": "rgb(48, 229, 255)",
+        "title_color": "white",
+        "chart_width": 950
+    }
+
+})   
+
+</script>
