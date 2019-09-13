@@ -14,7 +14,8 @@
 create_azle(function() {
 
 // YOUR AZLE FUNCTIONS HERE
-az.load_font("Ubuntu")
+    az.load_font("Ubuntu")
+    
     
     az.style_body({
       "background": "whitesmoke",
@@ -34,15 +35,10 @@ az.load_font("Ubuntu")
       "number_of_columns": 2
     })
 
-    z.add_d3_visual('my_layout_cells', 2, {
-        "this_class": "my_d3",
-        "html_path": "visuals/barchart.html",
-        "wrapper_arguments": barchart_wrapper_args,
-        "extra_functions": barchart_extras
-    })
+    
 
     barchart_wrapper_args = {
-        "data_path": "../data/bar_data.tsv",
+        "data_path": "../data/barchart.tsv",
         "y_title": "AVG RETURN",
         "top_choice": 30,
         "right_choice": 30,
@@ -52,6 +48,26 @@ az.load_font("Ubuntu")
         "title_color": "white",
         "chart_width": 950
     }
+
+    barchart_extras = {
+      "text_color": "az.all_style_d3('text', {'fill' : 'white'})",
+      "text_size": "az.all_style_d3('text', {'font-size' : '17px'})"
+    }
+
+
+    az.style_sections('my_sections', 1, {
+     "background" : "darkslategrey"
+    })
+
+    az.add_d3_visual('my_layout_cells', 1, {
+
+        "this_class": "my_barchart",
+        "html_path": "d3_visuals/barchart.html",
+        "wrapper_arguments": barchart_wrapper_args,
+        "extra_functions": barchart_extras
+    })
+
+     
 
 })   
 
